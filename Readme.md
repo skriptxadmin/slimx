@@ -1,7 +1,3 @@
-Here’s a **cleaned-up, more professional version** of your README for the **Slimx PHP framework**, while keeping your voice and structure intact:
-
----
-
 ## 🚀 Welcome to Slimx
 
 **Slimx** is a lightweight, open-source alternative to other PHP frameworks.  
@@ -14,7 +10,7 @@ It’s built on top of the [Slim Framework](https://www.slimframework.com/) and 
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/slimx.git
+git clone https://github.com/skriptxadmin/slimx.git
 ```
 
 ---
