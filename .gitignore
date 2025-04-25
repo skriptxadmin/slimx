@@ -1,0 +1,8 @@
+.env
+
+logger
+vendor
+smarty/templates_c
+smarty/cache
+
+

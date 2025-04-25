@@ -1,0 +1,28 @@
+<?php
+namespace App\Database\Seeders{namespace};
+
+use App\Models\Model;
+
+class {className} extends Model
+{
+
+    protected $table = '';
+
+    protected $rows = []; // do not fill the values here
+
+    public function __construct(){
+
+        parent::__construct();
+
+        $this->rows = [ // fill the values here
+            [
+                'columnName' => 'columnValue'
+            ]
+        ];
+
+        $this->seed();
+    }
+
+}
+
+new {className};

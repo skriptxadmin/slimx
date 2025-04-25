@@ -1,0 +1,61 @@
+<?php 
+
+
+if($argv[1] == 'make:controller'){
+
+    create_file($argv[2], __DIR__.'/./Controller.php.txt', __DIR__.'/../src/Controllers');
+
+  
+};
+
+if($argv[1] == 'make:model'){
+
+    create_file($argv[2], __DIR__.'/./Model.php.txt', __DIR__.'/../src/Models');
+
+};
+
+if($argv[1] == 'make:migration'){
+
+    create_file($argv[2], __DIR__.'/./Migration.php.txt', __DIR__.'/../src/Database/Migrations');
+
+};
+if($argv[1] == 'make:seeder'){
+
+    create_file($argv[2], __DIR__.'/./Seed.php.txt', __DIR__.'/../src/Database/Seeders');
+
+};
+
+
+function create_file($argv, $contentsPath, $filePath){
+
+    $contents = file_get_contents($contentsPath);
+
+    $path = preg_replace('/\//','\\', $argv);
+
+    $folders = explode('\\', $path);
+
+    $className = array_pop($folders);
+
+    $folderpath = implode('/', $folders);
+
+    $namespace = implode('\\', $folders);
+
+    $contents = preg_replace('/{namespace}/', $namespace?'\\'.$namespace:'', $contents);
+
+    $contents = preg_replace('/{className}/', $className, $contents);
+
+    foreach($folders as $folder){
+
+        if(!file_exists($filePath.'/'.$folder)){
+            mkdir($filePath.'/'.$folder);
+        }
+        $filePath = $filePath.'/'.$folder;
+
+    }
+    if(!file_exists($filePath.'/'.$className.'.php')){
+        $newFile = fopen($filePath.'/'.$className.'.php', 'w');
+        fwrite($newFile, $contents);
+        fclose($newFile);
+    }
+  
+}

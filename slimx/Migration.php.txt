@@ -1,0 +1,34 @@
+<?php
+namespace App\Database\Migrations{namespace};
+
+use App\Models\Model;
+
+class {className} extends Model
+{
+
+    protected $table = '';
+
+    protected $columns = [
+        'id'   => [
+            "INT",
+            "NOT NULL",
+            "AUTO_INCREMENT",
+            "PRIMARY KEY",
+        ],
+        
+    ];
+
+        public function __construct(){
+
+        parent::__construct();
+
+        $this->migrate();
+
+    }
+
+}
+
+
+
+
+new {className};
