@@ -11,6 +11,8 @@ use App\Middlewares\Globals\LoggerMiddleware;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Exception\HttpNotFoundException;
 use Slim\Factory\AppFactory;
+use App\Middlewares\Globals\CorsMiddleware;
+
 
 $dotenv = \Dotenv\Dotenv::createImmutable(ABSPATH);
 
@@ -19,6 +21,15 @@ $dotenv->load();
 date_default_timezone_set($_ENV['APP_TIMEZONE']);
 
 $app = AppFactory::create();
+
+// uncomment only if you need cors
+/*
+$app->options('/{routes:.+}', function ($request, $response, $args) {
+    return $response;
+});
+
+$app->add(new CorsMiddleware());
+*/
 
 require ABSPATH . '/routes/web.php';
 

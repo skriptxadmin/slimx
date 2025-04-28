@@ -160,3 +160,7 @@ return $this->view($request, 'users/index', $data, 'users_page_' . $page);
 ```smarty
 {env var=APP_TITLE}
 ```
+
+### To enable cors
+
+Use public/index.php and uncomment the lines
