@@ -12,6 +12,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Exception\HttpNotFoundException;
 use Slim\Factory\AppFactory;
 use App\Middlewares\Globals\CorsMiddleware;
+use Slim\Middleware\BodyParsingMiddleware;
 
 
 $dotenv = \Dotenv\Dotenv::createImmutable(ABSPATH);
@@ -30,6 +31,8 @@ $app->options('/{routes:.+}', function ($request, $response, $args) {
 
 $app->add(new CorsMiddleware());
 */
+$app->addBodyParsingMiddleware();
+
 
 require ABSPATH . '/routes/web.php';
 
