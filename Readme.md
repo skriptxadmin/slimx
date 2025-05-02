@@ -164,3 +164,24 @@ return $this->view($request, 'users/index', $data, 'users_page_' . $page);
 ### To enable cors
 
 Use public/index.php and uncomment the lines
+
+### Updates
+
+#### 02-05-2025
+
+Added omit column rule to unique rule. Example code below
+
+```php
+
+$body = $request->getParsedBody();
+
+        $validator = new Validator();
+
+        $rules = [
+            'id' => 'required',
+            'fullname' => 'required',
+            'role' => 'required|exists:roles,slug',
+            'email' => 'required|unique:users,email',
+            'mobile' => 'required|unique:users,mobile,id,'.$body['id'],
+        ];
+```
